@@ -6,6 +6,7 @@ const observacoesPorId = {};
 
 app.post("/lembretes/:id/observacoes", (req, res) => {
     const idObs = uuidv4();
+    const {texto} = req.body
     const observacoesDoLembrete = observacoesPorId[req.params.id] || [];
     observacoesDoLembrete.push({ id: idObs, texto });
 
@@ -18,5 +19,5 @@ app.get("/lembretes/:id/observacoes", (req, res) => {
 });
 
 app.listen(5000, () => {
-    console.log('Lembretes. Porta 5000');
+    console.log('Observações. Porta 5000');
 });
